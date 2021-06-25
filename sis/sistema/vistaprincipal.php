@@ -109,12 +109,12 @@
                     <li class="menu-title">Pedidos</li><!-- /.menu-title -->
 
                       <li>
-                        <a href="widgets.html"> <i class="menu-icon fa fa-shopping-cart"></i>Pedidos </a>
+                        <a href="Pedidos/vistapedidos.php"> <i class="menu-icon fa fa-shopping-cart"></i>Pedidos </a>
                     </li>
                    
                     <li class="menu-title">Equipos Terminados</li><!-- /.menu-title -->
                       <li>
-                        <a href="widgets.html"> <i class="menu-icon fa fa-archive"></i>Historial </a>
+                        <a href="./historial.php"> <i class="menu-icon fa fa-archive"></i>Historial </a>
                     </li>
                 </ul>
             </div><!-- /.navbar-collapse -->
@@ -161,7 +161,15 @@
                                     </div>
                                     <div class="stat-content">
                                         <div class="text-left dib">
-                                            <div class="stat-text">Equipos Pendientes <br><span class="count">23569</span></div>
+                                             <?php
+                                                $conn = new mysqli('localhost','root','', 'tony');
+                                                $sql = "SELECT * FROM equipos where status = 'En Espera'";
+                                                if ($result=mysqli_query($conn,$sql)) {
+                                                    $rowcount=mysqli_num_rows($result);
+                                                   
+                                                }
+                                                ?>
+                                            <div class="stat-text">Equipos Pendientes <br><span class="count"><?php echo $rowcount;?></span></div>
                                             <div class="stat-heading">Nuevos equipos que llegaron</div>
                                         </div>
                                     </div>
@@ -179,7 +187,15 @@
                                     </div>
                                     <div class="stat-content">
                                         <div class="text-left dib">
-                                            <div class="stat-text">Equipos Proceso<br><span class="count">3435</span></div>
+                                            <?php
+                                                $conn = new mysqli('localhost','root','', 'tony');
+                                                $sql2 = "SELECT * FROM equipos where status = 'En Proceso'";
+                                                if ($result2=mysqli_query($conn,$sql2)) {
+                                                    $rowcount2=mysqli_num_rows($result2);
+                                                   
+                                                }
+                                                ?>
+                                            <div class="stat-text">Equipos Proceso<br><span class="count"><?php echo $rowcount2;?></span></div>
                                             <div class="stat-heading">Equipos en proceso</div>
                                         </div>
                                     </div>
@@ -197,7 +213,15 @@
                                     </div>
                                     <div class="stat-content">
                                         <div class="text-left dib">
-                                            <div class="stat-text">Equipos Para Entregar<br><span class="count">349</span></div>
+                                             <?php
+                                                $conn = new mysqli('localhost','root','', 'tony');
+                                                $sql3 = "SELECT * FROM equipos where status = 'Para Entregar'";
+                                                if ($result3=mysqli_query($conn,$sql3)) {
+                                                    $rowcount3=mysqli_num_rows($result3);
+                                                   
+                                                }
+                                                ?>
+                                            <div class="stat-text">Equipos Para Entregar<br><span class="count"><?php echo $rowcount3;?></span></div>
                                             <div class="stat-heading">Equipos Listos Parta Entregar</div>
                                         </div>
                                     </div>
@@ -215,7 +239,15 @@
                                     </div>
                                     <div class="stat-content">
                                         <div class="text-left dib">
-                                            <div class="stat-text">Pedidos Pendientes<br><span class="count">2986</span></div>
+                                             <?php
+                                                $conn = new mysqli('localhost','root','', 'tony');
+                                                $sql4 = "SELECT * FROM pedidos where status = 'En Espera' or status = 'En Proceso' ";
+                                                if ($result4=mysqli_query($conn,$sql4)) {
+                                                    $rowcount4=mysqli_num_rows($result4);
+                                                   
+                                                }
+                                                ?>
+                                            <div class="stat-text">Pedidos Pendientes<br><span class="count"><?php echo $rowcount4;?></span></div>
                                             <div class="stat-heading">Pedidos Pendientes</div>
                                         </div>
                                     </div>
@@ -231,6 +263,66 @@
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="box-title">Pedidos De Partes</h4>
+                                <br>
+                                    <?php
+                                                                                        include_once "base_de_datos.php";
+                                                                                        $sentencia = $base_de_datos->query("SELECT * FROM pedidos where status <> 'Parte en el local' order by id_pedido desc ;");
+                                                                                        $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
+                                                                                    ?>
+
+
+
+                                 <table class="table table-striped" border="1" >
+                                        <thead>
+                                            <tr>
+                                             <th scope="col"># Pedido</th>
+                                                                                            <th scope="col">Cliente</th>
+                                                                                            <th scope="col">Fecha Pedido</th>
+                                                                                            <th scope="col">Fecha Estimada</th>
+                                                                                            <th scope="col">Marca</th>
+                                                                                            <th scope="col">Modelo</th>
+                                                                                            <th scope="col">Parte Pedida</th>
+                                                                                            <th scope="col">Status</th>
+                                                                                            
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            
+                                            <?php foreach($productos as $producto){ ?>
+
+                                            
+
+                                                <?php
+
+                                                    $var = $producto->status;
+                                                    $color = "";
+
+                                                    if ($var == 'En Espera') {
+                                                        $color = "#5770FF";
+                                                    }
+                                                    elseif( $var == 'En Proceso' ) {
+                                                        $color = "#C490FF";
+                                                    }
+
+                                                ?>
+
+                                            <tr>
+                                                
+                                                <td ><?php echo $producto->id_pedido ?></td>
+                                                                                                <td><?php echo $producto->nombre_cliente ?></td>
+                                                                                                <td><?php echo $producto->fecha ?></td>
+                                                                                                <td><?php echo $producto->tiempo_estimado ?></td>
+                                                                                                <td><?php echo $producto->marca ?></td>
+                                                                                                <td><?php echo $producto->modelo ?></td>
+                                                                                                <td><?php echo $producto->parte ?></td>
+                                                                                                <td style="background-color: <?php echo $color; ?>; color: black;"><?php echo $producto->status ?></td>
+                                                                                              
+                                                
+                                            </tr>
+                                            <?php } ?>
+
+                                        </tbody>
+                                    </table>
                             </div>
                             <div class="row">
                                

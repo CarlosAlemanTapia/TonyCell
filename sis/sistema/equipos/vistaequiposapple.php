@@ -50,9 +50,7 @@
     <link href="https://cdn.jsdelivr.net/npm/weathericons@2.1.0/css/weather-icons.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/fullcalendar@3.9.0/dist/fullcalendar.min.css" rel="stylesheet" />
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
 
    <style>
     #weatherWidget .currentDesc {
@@ -103,22 +101,22 @@
                     </li>
                     <li class="menu-title">Equipos</li><!-- /.menu-title -->
                        <li>
-                        <a href="widgets.html"> <i class="menu-icon fa fa-android"></i>Android </a>
+                        <a href="./vistaequiposandroid.php"> <i class="menu-icon fa fa-android"></i>Android </a>
                     </li>
                      <li>
-                        <a href="widgets.html"> <i class="menu-icon fa fa-apple"></i>Apple </a>
+                        <a href="./vistaequiposapple.php"> <i class="menu-icon fa fa-apple"></i>Apple </a>
                     </li>
                  
 
                     <li class="menu-title">Pedidos</li><!-- /.menu-title -->
 
                       <li>
-                        <a href="widgets.html"> <i class="menu-icon fa fa-shopping-cart"></i>Pedidos </a>
+                        <a href="../Pedidos/vistapedidos.php"> <i class="menu-icon fa fa-shopping-cart"></i>Pedidos </a>
                     </li>
                    
                     <li class="menu-title">Equipos Terminados</li><!-- /.menu-title -->
                       <li>
-                        <a href="widgets.html"> <i class="menu-icon fa fa-archive"></i>Historial </a>
+                        <a href="../historial.php"> <i class="menu-icon fa fa-archive"></i>Historial </a>
                     </li>
                 </ul>
             </div><!-- /.navbar-collapse -->
@@ -162,7 +160,7 @@
                 <!--  Traffic  -->
                 <div class="row">
                      <div class="col-lg-3 col-md-6">
-                        <div class="card">
+                        <div class="card" style="width:330px;">
                             <div class="card-body">
                                 <div class="stat-widget-five">
                                     <div class="stat-icon dib flat-color-3">
@@ -170,7 +168,7 @@
                                     </div>
                                     <div class="stat-content">
                                         <div class="text-left dib">
-                                            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" >Agregar Nuevo Equipo</button>
+                                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" >Agregar Nuevo Equipo</button>
                                         </div>
                                     </div>
                                 </div>
@@ -183,7 +181,8 @@
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="box-title">Equipos Android</h4>
+                                <h4 class="box-title">Equipos APLLE</h4>
+                                <br>
 
                                 <!-- MOdal -->
                                   <div class="modal fade" id="myModal" role="dialog">
@@ -191,7 +190,7 @@
                                       <div class="modal-content">
                                         <div class="modal-header">
                                           <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                          <h2 class="modal-title">Agregar Equipos</h2>
+                                          <h2 class="modal-title">Agregar Equipos Apple</h2>
                                         </div>
                                         <div class="modal-body">
                                           
@@ -409,8 +408,8 @@
                                                 <td><?php echo $producto->trabajo ?></td>
                                                 <td><?php echo $producto->falla_equipo ?></td>
                                                 <td><a class="btn btn-info" href="<?php echo "notasandroid.php?numero_nota=" . $producto->numero_nota?>"><i class="fa  fa-paste"></i></a></td>
-                                                <td><a class="btn btn-warning" href="<?php echo "modificarnotaandroid.php?numero_nota=" . $producto->numero_nota?>"><i class="fa fa-edit"></i></a></td>
-                                                <td><a class="btn btn-danger" href="<?php echo "eliminarnotaandroid.php?numero_nota=" . $producto->numero_nota?>"><i class="fa fa-trash-o"></i></a></td>
+                                                <td><a class="btn btn-warning" href="<?php echo "modificarnotaapple.php?numero_nota=" . $producto->numero_nota?>"><i class="fa fa-edit"></i></a></td>
+                                                <td><a class="btn btn-danger" href="<?php echo "eliminarnotaapple.php?numero_nota=" . $producto->numero_nota?>"><i class="fa fa-trash-o"></i></a></td>
                                                 
                                             </tr>
                                             <?php } ?>

@@ -172,6 +172,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="box-title">Modificar Notas</h4>
+                                <hr>
 
                                         <?php
                                                         include_once "../base_de_datos.php";
@@ -180,7 +181,7 @@
                                                     ?>
 
 
-                                            <form method="post" action="modificardatosnotas.php">
+                                            <form method="post" action="modificardatosnotasapple.php">
                                                         <?php foreach($productos as $producto){ ?>
 
                                                 
@@ -198,41 +199,8 @@
                                                     </div>
 
                                             
-
-                                                    <div class="form-group form-group-default">
-                                                        <label>Marca:</label>
-                                                         <select name="marca" id="marca" class="form-control">
-                                                            <option value="<?php echo $producto->marca ?>"><?php echo $producto->marca ?></option>
-                                                <option value="Samsung">Samsung</option>
-                                                <option value="Otro">Otro</option>
-                                                <option value="Lg">Lg</option>
-                                                <option value="Motorola">Motorola</option>
-                                                <option value="Huawei">Huawei</option>
-                                                <option value="Iphone">Iphone</option>
-                                                <option value="Alcatel">Alcatel</option>
-                                                <option value="Sony">Sony</option>
-                                                <option value="Lenovo">Lenovo</option>
-                                                <option value="Htc">Htc</option>
-                                                <option value="Zte">Zte</option>
-                                                <option value="Lanix">Lanix</option>
-                                                <option value="Nokia">Nokia</option>
-                                                <option value="OnePlus">One Plus</option>
-                                                <option value="Xiaomi">Xiaomi</option>
-                                                <option value="Vivo">Vivo</option>
-                                                <option value="Blue">Blue</option>
-                                                <option value="Verycool">Verycool</option>
-                                                <option value="Google">Google</option>
-                                                <option value="Oppo">Oppo</option>
-                                                <option value="Blackvery">Blackvery</option>
-                                                <option value="Asus">Asus</option>
-                                                <option value="M4">M4</option>
-                                                <option value="Polaroid">Polaroid</option>
-                                                <option value="Zumm">Zumm</option>
-                                                <option value="Hisense">Hisense</option>
-                                                <option value="HP">HP</option>
-                                              </select>
-            
-                                                    </div>
+                                                    <input type="hidden" id="marca" name="marca" value="<?php echo $producto->marca ?>">
+                                                 
 
 
                                                     <div class="form-group form-group-default">
@@ -322,7 +290,7 @@
                                                 
                                                     
                                                     <br><br><input class="btn btn-info" type="submit" value="Guardar">
-                                                    <a class="btn btn-warning" href="./vistaequiposandroid.php">Cancelar</a>
+                                                    <a class="btn btn-warning" href="./vistaequiposapple.php">Cancelar</a>
 
                                                     <?php } ?>
                                                 </form>

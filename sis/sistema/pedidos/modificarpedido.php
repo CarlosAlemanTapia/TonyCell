@@ -21,10 +21,11 @@
 
 ?>
 <?php 
-    
-    $idnota = $_GET['numero_nota'];
+	
+	$idpedido = $_GET['id_pedido'];
 
 ?>
+
 <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
@@ -55,9 +56,6 @@
     <link href="https://cdn.jsdelivr.net/npm/weathericons@2.1.0/css/weather-icons.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/fullcalendar@3.9.0/dist/fullcalendar.min.css" rel="stylesheet" />
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
    <style>
     #weatherWidget .currentDesc {
@@ -108,17 +106,17 @@
                     </li>
                     <li class="menu-title">Equipos</li><!-- /.menu-title -->
                        <li>
-                        <a href="./vistaequiposandroid.php"> <i class="menu-icon fa fa-android"></i>Android </a>
+                        <a href="../equipos/vistaequiposandroid.php"> <i class="menu-icon fa fa-android"></i>Android </a>
                     </li>
                      <li>
-                        <a href="./vistaequiposapple.php"> <i class="menu-icon fa fa-apple"></i>Apple </a>
+                        <a href="../equipos/vistaequiposapple.php"> <i class="menu-icon fa fa-apple"></i>Apple </a>
                     </li>
                  
 
                     <li class="menu-title">Pedidos</li><!-- /.menu-title -->
 
                       <li>
-                        <a href="../Pedidos/vistapedidos.php"> <i class="menu-icon fa fa-shopping-cart"></i>Pedidos </a>
+                        <a href="./vistapedidos.php"> <i class="menu-icon fa fa-shopping-cart"></i>Pedidos </a>
                     </li>
                    
                     <li class="menu-title">Equipos Terminados</li><!-- /.menu-title -->
@@ -172,19 +170,20 @@
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="box-title">Modificar Notas</h4>
+                                <br>
+													<?php
+														include_once "../base_de_datos.php";
+														$sentencia = $base_de_datos->query("SELECT * FROM pedidos where id_pedido = $idpedido;");
+														$productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
+													?>
 
-                                        <?php
-                                                        include_once "../base_de_datos.php";
-                                                        $sentencia = $base_de_datos->query("SELECT * FROM equipos where numero_nota = $idnota;");
-                                                        $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
-                                                    ?>
 
-
-                                            <form method="post" action="modificardatosnotas.php">
+                                            <form method="post" action="modpedido.php">
                                                         <?php foreach($productos as $producto){ ?>
 
-                                                
-                                                    <input type="hidden" id="numero_nota" name="numero_nota" value="<?php echo $idnota ?>">
+                                                <input type="hidden" id="id_pedido" name="id_pedido" value="<?php echo $producto->id_pedido ?>">
+
+												
 
                                                 
                                                     <div class="form-group form-group-default">
@@ -199,130 +198,90 @@
 
                                             
 
-                                                    <div class="form-group form-group-default">
-                                                        <label>Marca:</label>
-                                                         <select name="marca" id="marca" class="form-control">
-                                                            <option value="<?php echo $producto->marca ?>"><?php echo $producto->marca ?></option>
-                                                <option value="Samsung">Samsung</option>
-                                                <option value="Otro">Otro</option>
-                                                <option value="Lg">Lg</option>
-                                                <option value="Motorola">Motorola</option>
-                                                <option value="Huawei">Huawei</option>
-                                                <option value="Iphone">Iphone</option>
-                                                <option value="Alcatel">Alcatel</option>
-                                                <option value="Sony">Sony</option>
-                                                <option value="Lenovo">Lenovo</option>
-                                                <option value="Htc">Htc</option>
-                                                <option value="Zte">Zte</option>
-                                                <option value="Lanix">Lanix</option>
-                                                <option value="Nokia">Nokia</option>
-                                                <option value="OnePlus">One Plus</option>
-                                                <option value="Xiaomi">Xiaomi</option>
-                                                <option value="Vivo">Vivo</option>
-                                                <option value="Blue">Blue</option>
-                                                <option value="Verycool">Verycool</option>
-                                                <option value="Google">Google</option>
-                                                <option value="Oppo">Oppo</option>
-                                                <option value="Blackvery">Blackvery</option>
-                                                <option value="Asus">Asus</option>
-                                                <option value="M4">M4</option>
-                                                <option value="Polaroid">Polaroid</option>
-                                                <option value="Zumm">Zumm</option>
-                                                <option value="Hisense">Hisense</option>
-                                                <option value="HP">HP</option>
-                                              </select>
+                                                    		<div class="form-group form-group-default">
+														<label>Marca:</label>
+														 <select name="marca" id="marca" class="form-control">
+														 	<option value="<?php echo $producto->marca ?>"><?php echo $producto->marca ?></option>
+								                <option value="Samsung">Samsung</option>
+								                <option value="Otro">Otro</option>
+								                <option value="Lg">Lg</option>
+								                <option value="Apple">Apple</option>
+								                <option value="Motorola">Motorola</option>
+								                <option value="Huawei">Huawei</option>
+								                <option value="Iphone">Iphone</option>
+								                <option value="Alcatel">Alcatel</option>
+								                <option value="Sony">Sony</option>
+								                <option value="Lenovo">Lenovo</option>
+								                <option value="Htc">Htc</option>
+								                <option value="Zte">Zte</option>
+								                <option value="Lanix">Lanix</option>
+								                <option value="Nokia">Nokia</option>
+								                <option value="OnePlus">One Plus</option>
+								                <option value="Xiaomi">Xiaomi</option>
+								                <option value="Vivo">Vivo</option>
+								                <option value="Blue">Blue</option>
+								                <option value="Verycool">Verycool</option>
+								                <option value="Google">Google</option>
+								                <option value="Oppo">Oppo</option>
+								                <option value="Blackvery">Blackvery</option>
+								                <option value="Asus">Asus</option>
+								                <option value="M4">M4</option>
+								                <option value="Polaroid">Polaroid</option>
+								                <option value="Zumm">Zumm</option>
+								                <option value="Hisense">Hisense</option>
+								                <option value="HP">HP</option>
+								              </select>
             
-                                                    </div>
-
+													</div>
 
                                                     <div class="form-group form-group-default">
                                                         <label>Modelo:</label>
                                                         <input id="modelo" name="modelo" type="text" class="form-control" value="<?php echo $producto->modelo ?>">
                                                     </div>
 
-                                                    <div class="form-group form-group-default">
-                                                        <label>Color:</label>
-                                                        <input id="color" name="color" type="text" class="form-control" value="<?php echo $producto->color ?>" >
-                                                    </div>
+                                                   	<div class="form-group form-group-default">
+																										<label>Parte A Pedir:</label>
+																										<input id="parte" name="parte" type="text" class="form-control" value="<?php echo $producto->parte ?>" >
+																									</div>
 
 
 
-                                                    <div class="form-group form-group-default">
-                                                        <label>Contraseña:</label>
-                                                        <input id="contra" name="contra" type="text" class="form-control" value="<?php echo $producto->contra ?>">
-                                                    </div>
+                                                   <div class="form-group form-group-default">
+														<label>Dejo Equipo:</label>
+															 <select name="dejo_equipo" id="dejo_equipo" class="form-control">
+															 	<option value="<?php echo $producto->dejo_equipo ?>"><?php echo $producto->dejo_equipo ?></option>
+								                <option value="Si">SI</option>
+								                <option value="No">NO</option>
+								             
+								              </select>
+								          </div>
 
-                                                    <div class="form-group form-group-default">
-                                                        <label>Falla Del Equipo:</label>
-                                                        <input id="falla_equipo" name="falla_equipo" type="text" class="form-control" value="<?php echo $producto->falla_equipo ?>" >
-                                                    </div>
-
-
-
-                                                    <div class="form-group form-group-default">
-                                                        <label>Trabajo A Realizar:</label>
-                                                        <input id="trabajo" name="trabajo" type="text" class="form-control" value="<?php echo $producto->trabajo ?>">
-                                                    </div>
-
-                                                    <div class="form-group form-group-default">
-                                                        <label>Cracks:</label>
-                                                            <select name="cracks" id="cracks" class="form-control">
-                                                <option value="<?php echo $producto->cracks ?>"><?php echo $producto->cracks ?></option>
-                                                <option value="Si">SI</option>
-                                                <option value="No">NO</option>
-                                             
-                                              </select>
-                                                    </div>
-
-                                                    <div class="form-group form-group-default">
-                                                        <label>Enciende:</label>
-                                                             <select name="enciende" id="enciende" class="form-control">
-                                                          <option value="<?php echo $producto->enciende ?>"><?php echo $producto->enciende ?></option>   
-                                                <option value="Si">SI</option>
-                                                <option value="No">NO</option>
-                                              
-                                              </select>
-                                            </div>
+<div class="form-group form-group-default">
+														<label>Precio Total:</label>
+														<input id="precio_total" name="precio_total" type="text" class="form-control" value="<?php echo $producto->precio_total ?>" >
+													</div>
 
 
-                                                    <div class="form-group form-group-default">
-                                                        <label>Detalles Del Equipo:</label>
-                                                        <input id="detalles_equipo" name="detalles_equipo" type="text" class="form-control" value="<?php echo $producto->detalles_equipo ?>">
-                                                    </div>
+	<div class="form-group form-group-default">
+														<label>Abonos:</label>
+														<input id="abonos" name="abonos" type="text" class="form-control" value="<?php echo $producto->abonos ?>">
+													</div>
 
-
-                                                    <input type="hidden" id="quien_recibio" name="quien_recibio" value="<?= $user['nombre_us']; ?>">
-
-
-                                                    <div class="form-group form-group-default">
-                                                        <label>Precio:</label>
-                                                        <input id="precio" name="precio" type="text" class="form-control" value="<?php echo $producto->precio ?>">
-                                                    </div>
-
-
-                                                    <div class="form-group form-group-default">
-                                                        <label>Abonos:</label>
-                                                        <input id="abonos" name="abonos" type="text" class="form-control" value="<?php echo $producto->abonos ?>">
-                                                    </div>
-
-                                                
-
-                                                        <div class="form-group form-group-default">
-                                                        <label>Status:</label>
-                                                             <select name="status" id="status" class="form-control">
-                                                             <option value="<?php echo $producto->status ?>"><?php echo $producto->status ?></option>
-                                                <option value="En Proceso">En Proceso</option>
-                                                <option value="Para Entregar">Para Entregar</option>
-                                                <option value="Entregado">Entregado</option>
-                                              
-                                              </select>
-                                            </div>
+														<div class="form-group form-group-default">
+														<label>Status:</label>
+														<select name="status" id="status" class="form-control">
+															<option value="<?php echo $producto->status ?>"><?php echo $producto->status ?></option>
+								                			<option value="En Proceso">En Proceso</option>
+								               				 <option value="Llego">LLego</option>
+								          				</select>
+								          				</div>
 
                                                     
                                                 
                                                     
-                                                    <br><br><input class="btn btn-info" type="submit" value="Guardar">
-                                                    <a class="btn btn-warning" href="./vistaequiposandroid.php">Cancelar</a>
+                                                 
+													<br><br><input class="btn btn-info" type="submit" value="Guardar">
+													<a class="btn btn-warning" href="./vistapedidos.php">Cancelar</a>
 
                                                     <?php } ?>
                                                 </form>
