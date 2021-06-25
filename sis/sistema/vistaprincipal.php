@@ -102,7 +102,7 @@
                         <a href="equipos/vistaequiposandroid.php"> <i class="menu-icon fa fa-android"></i>Android </a>
                     </li>
                      <li>
-                        <a href="widgets.html"> <i class="menu-icon fa fa-apple"></i>Apple </a>
+                        <a href="equipos/vistaequiposapple.php"> <i class="menu-icon fa fa-apple"></i>Apple </a>
                     </li>
                  
 

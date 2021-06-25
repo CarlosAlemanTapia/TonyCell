@@ -219,67 +219,39 @@
 
                                             <br>
 <br>
-
+                                                        <input type="hidden" id="marca" name="marca" value="Apple">
                                                     <p>Datos Telefono</p>
                                                     <hr>
                                                     <div class="row">
                                                         <div class="col-6">
-                                                            <div class="form-group form-group-default">
-                                                                <label>Marca:</label>
-                                                                <select name="marca" id="marca" class="form-control">
-                                                                    <option value="Samsung">Samsung</option>
-                                                                    <option value="Otro">Otro</option>
-                                                                    <option value="Lg">Lg</option>
-                                                                    <option value="Motorola">Motorola</option>
-                                                                    <option value="Huawei">Huawei</option>
-                                                                    <option value="Iphone">Iphone</option>
-                                                                    <option value="Alcatel">Alcatel</option>
-                                                                    <option value="Sony">Sony</option>
-                                                                    <option value="Lenovo">Lenovo</option>
-                                                                    <option value="Htc">Htc</option>
-                                                                    <option value="Zte">Zte</option>
-                                                                    <option value="Lanix">Lanix</option>
-                                                                    <option value="Nokia">Nokia</option>
-                                                                    <option value="OnePlus">One Plus</option>
-                                                                    <option value="Xiaomi">Xiaomi</option>
-                                                                    <option value="Vivo">Vivo</option>
-                                                                    <option value="Blue">Blue</option>
-                                                                    <option value="Verycool">Verycool</option>
-                                                                    <option value="Google">Google</option>
-                                                                    <option value="Oppo">Oppo</option>
-                                                                    <option value="Blackvery">Blackvery</option>
-                                                                    <option value="Asus">Asus</option>
-                                                                    <option value="M4">M4</option>
-                                                                    <option value="Polaroid">Polaroid</option>
-                                                                    <option value="Zumm">Zumm</option>
-                                                                    <option value="Hisense">Hisense</option>
-                                                                    <option value="HP">HP</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="col-6">
-                                                             <div class="form-group form-group-default">
+                                                         <div class="form-group form-group-default">
                                                                 <label>Modelo:</label>
                                                                 <input id="modelo" name="modelo" type="text" class="form-control" required="Ingresa el modelo">
                                                             </div>
                                                         </div>
 
-                                                    </div>
-
-
-                                                    <div class="row">
                                                         <div class="col-6">
-                                                             <div class="form-group form-group-default">
+                                                                <div class="form-group form-group-default">
                                                         <label>Color:</label>
                                                         <input id="color" name="color" type="text" class="form-control" required="Ingresa el color del equipo" >
                                                     </div>
                                                         </div>
 
+                                                    </div>
+
+
+                                                    <div class="row">
                                                         <div class="col-6">
-                                                            <div class="form-group form-group-default">
+                                                          <div class="form-group form-group-default">
                                                         <label>Contraseña:</label>
                                                         <input id="contra" name="contra" type="text" class="form-control" required="Ingresa la contrasena del equipo">
+                                                    </div>
+                                                        </div>
+
+                                                        <div class="col-6">
+                                                             <div class="form-group form-group-default">
+                                                        <label>Falla Del Equipo:</label>
+                                                        <input id="falla_equipo" name="falla_equipo" type="text" class="form-control" required="Ingresa la falla que tiene el equipo" >
                                                     </div>
                                                         </div>
 
@@ -287,24 +259,14 @@
                                                     
                                                      <div class="row">
                                                         <div class="col-6">
-                                                            <div class="form-group form-group-default">
-                                                        <label>Falla Del Equipo:</label>
-                                                        <input id="falla_equipo" name="falla_equipo" type="text" class="form-control" required="Ingresa la falla que tiene el equipo" >
-                                                    </div>
-                                                        </div>
-
-                                                        <div class="col-6">
                                                              <div class="form-group form-group-default">
                                                         <label>Trabajo A Realizar:</label>
                                                         <input id="trabajo" name="trabajo" type="text" class="form-control" required="Ingresa el trabajo a realizar">
                                                     </div>
                                                         </div>
 
-                                                    </div>
-
-                                                    <div class="row">
                                                         <div class="col-6">
-                                                              <div class="form-group form-group-default">
+                                                            <div class="form-group form-group-default">
                                                         <label>Cracks:</label>
                                                              <select name="cracks" id="cracks" class="form-control">
                                                 <option value="Si">SI</option>
@@ -314,8 +276,11 @@
                                                     </div>
                                                         </div>
 
+                                                    </div>
+
+                                                    <div class="row">
                                                         <div class="col-6">
-                                                              <div class="form-group form-group-default">
+                                                                 <div class="form-group form-group-default">
                                                         <label>Enciende:</label>
                                                              <select name="enciende" id="enciende" class="form-control">
                                                 <option value="Si">SI</option>
@@ -325,13 +290,17 @@
                                             </div>
                                                         </div>
 
-                                                    </div>
-                                                   
-
-                                                    <div class="form-group form-group-default">
+                                                        <div class="col-6">
+                                                          <div class="form-group form-group-default">
                                                         <label>Detalles Del Equipo:</label>
                                                         <input id="detalles_equipo" name="detalles_equipo" type="text" class="form-control" required="Ingresa los detalles que tiene el equipo">
                                                     </div>
+                                                        </div>
+
+                                                    </div>
+                                                   
+
+                                                    
 
                                                     <br>
                                                     <br>
@@ -388,7 +357,7 @@
 
                                         <?php
                                             include_once "../base_de_datos.php";
-                                            $sentencia = $base_de_datos->query("SELECT * FROM equipos where status <> 'Entregado' and marca <> 'Apple' order by numero_nota desc ;");
+                                            $sentencia = $base_de_datos->query("SELECT * FROM equipos where status <> 'Entregado' and marca = 'Apple'  order by numero_nota desc ;");
                                             $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
                                         ?>
 
