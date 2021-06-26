@@ -182,6 +182,8 @@
                                                 <th scope="col">Trabajo</th>
                                                 <th scope="col">Falla</th>
                                                 <th scope="col">Nota</th>
+                                                <th scope="col">Sucursal</th>
+                                                <th scope="col">Garantia</th>
             </tr>
         </thead>
         <tbody>
@@ -194,7 +196,9 @@
 												<td><?php echo $producto->modelo ?></td>
 												<td><?php echo $producto->trabajo ?></td>
 												<td><?php echo $producto->falla_equipo ?></td>
-												<td><a class="btn btn-info" href="<?php echo "notas.php?numero_nota=" . $producto->numero_nota?>"><i class="fa  fa-paste"></i></a></td>			
+												<td><a class="btn btn-info" href="<?php echo "notas.php?numero_nota=" . $producto->numero_nota?>"><i class="fa  fa-paste"></i></a></td>
+                                                <td><?php echo $producto->sucursal ?></td>
+                                                <td><a class="btn btn-info" href="<?php echo "garantiahacer.php?numero_nota=" . $producto->numero_nota?>"><i class="fa  fa-paste"></i></a></td>
 												
 											</tr>
 											<?php } ?>    
