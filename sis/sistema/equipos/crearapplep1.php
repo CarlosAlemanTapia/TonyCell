@@ -35,7 +35,7 @@ $sentencia = $base_de_datos->prepare("INSERT INTO equipos(fecha_llegada, nombre_
 $resultado = $sentencia->execute([$ahora, $nombre_cliente, $telefono_cliente, $marca, $modelo, $color,$contra,$falla_equipo,$trabajo,$cracks,$enciende,$detalles_equipo,$quien_recibio,$precio,$abonos,$status,$sucursal]);
 
 if($resultado === TRUE){
-	header("Location: vistaequiposapple.php");
+	header("Location: vistaequiposapplep1.php");
 	exit;
 }
 else echo "Algo salió mal.";

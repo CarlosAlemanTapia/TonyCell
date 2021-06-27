@@ -114,8 +114,8 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-cogs"></i>PUNTO 1</a>
                         <ul class="sub-menu children dropdown-menu">  
                      
-                            <li><i class="fa fa-android"></i><a href="equipos/vistaequiposandroid.php">Android</a></li>
-                            <li><i class="fa fa-apple"></i><a href="equipos/vistaequiposapple.php">Apple</a></li>
+                            <li><i class="fa fa-android"></i><a href="equipos/vistaequiposandroidp1.php">Android</a></li>
+                            <li><i class="fa fa-apple"></i><a href="equipos/vistaequiposapplep1.php">Apple</a></li>
                             
                         </ul>
                     </li>
@@ -124,8 +124,8 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-cogs"></i>PUNTO 2</a>
                         <ul class="sub-menu children dropdown-menu">  
                      
-                            <li><i class="fa fa-android"></i><a href="equipos/vistaequiposandroid.php">Android</a></li>
-                            <li><i class="fa fa-apple"></i><a href="equipos/vistaequiposapple.php">Apple</a></li>
+                            <li><i class="fa fa-android"></i><a href="equipos/vistaequiposandroidp2.php">Android</a></li>
+                            <li><i class="fa fa-apple"></i><a href="equipos/vistaequiposapplep2.php">Apple</a></li>
                             
                         </ul>
                     </li>

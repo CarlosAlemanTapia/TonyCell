@@ -20,6 +20,11 @@
     }
 
 ?>
+<?php 
+    
+    $idnota = $_GET['numero_nota'];
+
+?>
 <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
@@ -50,9 +55,9 @@
     <link href="https://cdn.jsdelivr.net/npm/weathericons@2.1.0/css/weather-icons.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/fullcalendar@3.9.0/dist/fullcalendar.min.css" rel="stylesheet" />
 
-  <!--   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
    <style>
     #weatherWidget .currentDesc {
@@ -101,7 +106,7 @@
                     <li class="active">
                         <a href="../vistaprincipal.php"><i class="menu-icon fa fa-home"></i>INICIO </a>
                     </li>
-                    <li class="menu-title">PUNTOS</li><!-- /.menu-title -->
+                   <li class="menu-title">PUNTOS</li><!-- /.menu-title -->
                        <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-cogs"></i>LOCAL</a>
                         <ul class="sub-menu children dropdown-menu">  
@@ -132,7 +137,6 @@
                             
                         </ul>
                     </li>
-                 
 
                     <li class="menu-title">Pedidos</li><!-- /.menu-title -->
 
@@ -184,296 +188,172 @@
                 <!-- /Widgets -->
 
                 <!--  Traffic  -->
-                <div class="row">
-                     <div class="col-lg-3 col-md-6">
-                        <div class="card" style="width:330px;">
-                            <div class="card-body">
-                                <div class="stat-widget-five">
-                                    <div class="stat-icon dib flat-color-3">
-                                        <i class="fa fa-mobile-phone"></i>
-                                    </div>
-                                    <div class="stat-content">
-                                        <div class="text-left dib">
-                                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" >Agregar Nuevo Equipo</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+              
 
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-body">
-                                <h1 class="box-title">Equipos Android "LOCAL"</h1>
-                                <br>
-                                <!-- MOdal -->
-                                  <div class="modal fade" id="myModal" role="dialog">
-                                    <div class="modal-dialog modal-lg">
-                                      <div class="modal-content">
-                                        <div class="modal-header">
-                                          <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                          <h2 class="modal-title">Agregar Equipos Android</h2>
-                                        </div>
-                                        <div class="modal-body">
-                                          
-                                            <form method="post" action="crearandroid.php">
-                                                    
-                                                    <p>Datos Cliente</p>
-                                                    <hr>
-                                                    <div class="row">
-                                                        <div class="col-6">
-                                                            <div class="form-group">
-                                                                <label>Nombre Cliente:</label>
-                                                                <input id="nombre_cliente" name="nombre_cliente" type="text" class="form-control" required="Ingresa el nombre de cliente">
-                                                            </div>
-                                                        </div>
+                                <h4 class="box-title">Modificar Notas</h4>
 
-                                                        <div class="col-6">
-                                                            <div class="form-group">
-                                                                <label>Nuemero De Cleinte:</label>
-                                                                <input id="telefono_cliente" name="telefono_cliente" type="text" class="form-control" required="Ingresa el numero de telefono del cliente" >
-                                                            </div>
-                                                        </div>
+                                        <?php
+                                                        include_once "../base_de_datos.php";
+                                                        $sentencia = $base_de_datos->query("SELECT * FROM equipos where numero_nota = $idnota;");
+                                                        $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
+                                                    ?>
 
+
+                                            <form method="post" action="modificardatosnotasp2.php">
+                                                        <?php foreach($productos as $producto){ ?>
+
+                                                
+                                                    <input type="hidden" id="numero_nota" name="numero_nota" value="<?php echo $idnota ?>">
+
+                                                
+                                                    <div class="form-group form-group-default">
+                                                        <label>Nombre Cliente:</label>
+                                                        <input id="nombre_cliente" name="nombre_cliente" type="text" class="form-control" value="<?php echo $producto->nombre_cliente ?>">
                                                     </div>
-                                                   
 
-                                            <br>
-<br>
+                                                    <div class="form-group form-group-default">
+                                                        <label>Nuemero De Cleinte:</label>
+                                                        <input id="telefono_cliente" name="telefono_cliente" type="text" class="form-control" value="<?php echo $producto->telefono_cliente ?>">
+                                                    </div>
 
-                                                    <p>Datos Telefono</p>
-                                                    <hr>
-                                                    <div class="row">
-                                                        <div class="col-6">
-                                                            <div class="form-group form-group-default">
-                                                                <label>Marca:</label>
-                                                                <select name="marca" id="marca" class="form-control">
-                                                                    <option value="Samsung">Samsung</option>
-                                                                    <option value="Otro">Otro</option>
-                                                                    <option value="Lg">Lg</option>
-                                                                    <option value="Motorola">Motorola</option>
-                                                                    <option value="Huawei">Huawei</option>
-                                                                    <option value="Iphone">Iphone</option>
-                                                                    <option value="Alcatel">Alcatel</option>
-                                                                    <option value="Sony">Sony</option>
-                                                                    <option value="Lenovo">Lenovo</option>
-                                                                    <option value="Htc">Htc</option>
-                                                                    <option value="Zte">Zte</option>
-                                                                    <option value="Lanix">Lanix</option>
-                                                                    <option value="Nokia">Nokia</option>
-                                                                    <option value="OnePlus">One Plus</option>
-                                                                    <option value="Xiaomi">Xiaomi</option>
-                                                                    <option value="Vivo">Vivo</option>
-                                                                    <option value="Blue">Blue</option>
-                                                                    <option value="Verycool">Verycool</option>
-                                                                    <option value="Google">Google</option>
-                                                                    <option value="Oppo">Oppo</option>
-                                                                    <option value="Blackvery">Blackvery</option>
-                                                                    <option value="Asus">Asus</option>
-                                                                    <option value="M4">M4</option>
-                                                                    <option value="Polaroid">Polaroid</option>
-                                                                    <option value="Zumm">Zumm</option>
-                                                                    <option value="Hisense">Hisense</option>
-                                                                    <option value="HP">HP</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
+                                            
 
-                                                        <div class="col-6">
-                                                             <div class="form-group form-group-default">
-                                                                <label>Modelo:</label>
-                                                                <input id="modelo" name="modelo" type="text" class="form-control" required="Ingresa el modelo">
-                                                            </div>
-                                                        </div>
-
+                                                    <div class="form-group form-group-default">
+                                                        <label>Marca:</label>
+                                                         <select name="marca" id="marca" class="form-control">
+                                                            <option value="<?php echo $producto->marca ?>"><?php echo $producto->marca ?></option>
+                                                <option value="Samsung">Samsung</option>
+                                                <option value="Otro">Otro</option>
+                                                <option value="Lg">Lg</option>
+                                                <option value="Motorola">Motorola</option>
+                                                <option value="Huawei">Huawei</option>
+                                                <option value="Iphone">Iphone</option>
+                                                <option value="Alcatel">Alcatel</option>
+                                                <option value="Sony">Sony</option>
+                                                <option value="Lenovo">Lenovo</option>
+                                                <option value="Htc">Htc</option>
+                                                <option value="Zte">Zte</option>
+                                                <option value="Lanix">Lanix</option>
+                                                <option value="Nokia">Nokia</option>
+                                                <option value="OnePlus">One Plus</option>
+                                                <option value="Xiaomi">Xiaomi</option>
+                                                <option value="Vivo">Vivo</option>
+                                                <option value="Blue">Blue</option>
+                                                <option value="Verycool">Verycool</option>
+                                                <option value="Google">Google</option>
+                                                <option value="Oppo">Oppo</option>
+                                                <option value="Blackvery">Blackvery</option>
+                                                <option value="Asus">Asus</option>
+                                                <option value="M4">M4</option>
+                                                <option value="Polaroid">Polaroid</option>
+                                                <option value="Zumm">Zumm</option>
+                                                <option value="Hisense">Hisense</option>
+                                                <option value="HP">HP</option>
+                                              </select>
+            
                                                     </div>
 
 
-                                                    <div class="row">
-                                                        <div class="col-6">
-                                                             <div class="form-group form-group-default">
+                                                    <div class="form-group form-group-default">
+                                                        <label>Modelo:</label>
+                                                        <input id="modelo" name="modelo" type="text" class="form-control" value="<?php echo $producto->modelo ?>">
+                                                    </div>
+
+                                                    <div class="form-group form-group-default">
                                                         <label>Color:</label>
-                                                        <input id="color" name="color" type="text" class="form-control" required="Ingresa el color del equipo" >
+                                                        <input id="color" name="color" type="text" class="form-control" value="<?php echo $producto->color ?>" >
                                                     </div>
-                                                        </div>
 
-                                                        <div class="col-6">
-                                                            <div class="form-group form-group-default">
+
+
+                                                    <div class="form-group form-group-default">
                                                         <label>Contraseña:</label>
-                                                        <input id="contra" name="contra" type="text" class="form-control" required="Ingresa la contrasena del equipo">
+                                                        <input id="contra" name="contra" type="text" class="form-control" value="<?php echo $producto->contra ?>">
                                                     </div>
-                                                        </div>
 
-                                                    </div>
-                                                    
-                                                     <div class="row">
-                                                        <div class="col-6">
-                                                            <div class="form-group form-group-default">
+                                                    <div class="form-group form-group-default">
                                                         <label>Falla Del Equipo:</label>
-                                                        <input id="falla_equipo" name="falla_equipo" type="text" class="form-control" required="Ingresa la falla que tiene el equipo" >
+                                                        <input id="falla_equipo" name="falla_equipo" type="text" class="form-control" value="<?php echo $producto->falla_equipo ?>" >
                                                     </div>
-                                                        </div>
 
-                                                        <div class="col-6">
-                                                             <div class="form-group form-group-default">
+
+
+                                                    <div class="form-group form-group-default">
                                                         <label>Trabajo A Realizar:</label>
-                                                        <input id="trabajo" name="trabajo" type="text" class="form-control" required="Ingresa el trabajo a realizar">
-                                                    </div>
-                                                        </div>
-
+                                                        <input id="trabajo" name="trabajo" type="text" class="form-control" value="<?php echo $producto->trabajo ?>">
                                                     </div>
 
-                                                    <div class="row">
-                                                        <div class="col-6">
-                                                              <div class="form-group form-group-default">
+                                                    <div class="form-group form-group-default">
                                                         <label>Cracks:</label>
-                                                             <select name="cracks" id="cracks" class="form-control">
+                                                            <select name="cracks" id="cracks" class="form-control">
+                                                <option value="<?php echo $producto->cracks ?>"><?php echo $producto->cracks ?></option>
                                                 <option value="Si">SI</option>
                                                 <option value="No">NO</option>
                                              
                                               </select>
                                                     </div>
-                                                        </div>
 
-                                                        <div class="col-6">
-                                                              <div class="form-group form-group-default">
+                                                    <div class="form-group form-group-default">
                                                         <label>Enciende:</label>
                                                              <select name="enciende" id="enciende" class="form-control">
+                                                          <option value="<?php echo $producto->enciende ?>"><?php echo $producto->enciende ?></option>   
                                                 <option value="Si">SI</option>
                                                 <option value="No">NO</option>
                                               
                                               </select>
                                             </div>
-                                                        </div>
 
-                                                    </div>
-                                                   
 
                                                     <div class="form-group form-group-default">
                                                         <label>Detalles Del Equipo:</label>
-                                                        <input id="detalles_equipo" name="detalles_equipo" type="text" class="form-control" required="Ingresa los detalles que tiene el equipo">
-                                                    </div>
-
-                                                    <br>
-                                                    <br>
-
-
-                                                      <p>Detalles De Reparacion</p>
-                                                      <hr>
-                                                    <div class="row">
-                                                        <div class="col-6">
-                                                            <div class="form-group form-group-default">
-                                                        <label>Precio:</label>
-                                                        <input id="precio" name="precio" type="text" class="form-control" required="Ingresa el precio final">
-                                                    </div>
-                                                        </div>
-
-                                                        <div class="col-6">
-                                                             <div class="form-group form-group-default">
-                                                        <label>Abonos:</label>
-                                                        <input id="abonos" name="abonos" type="text" class="form-control" required="Ingresa si dejo abono">
-                                                    </div>
-                                                        </div>
-
+                                                        <input id="detalles_equipo" name="detalles_equipo" type="text" class="form-control" value="<?php echo $producto->detalles_equipo ?>">
                                                     </div>
 
 
                                                     <input type="hidden" id="quien_recibio" name="quien_recibio" value="<?= $user['nombre_us']; ?>">
 
 
-                                                    
+                                                    <div class="form-group form-group-default">
+                                                        <label>Precio:</label>
+                                                        <input id="precio" name="precio" type="text" class="form-control" value="<?php echo $producto->precio ?>">
+                                                    </div>
 
 
-                                                   
-
-                                                    <input type="hidden" id="status" name="status" value="En Espera">
-                                                    <input type="hidden" id="sucursal" name="sucursal" value="Local">
-
-                                                   
+                                                    <div class="form-group form-group-default">
+                                                        <label>Abonos:</label>
+                                                        <input id="abonos" name="abonos" type="text" class="form-control" value="<?php echo $producto->abonos ?>">
+                                                    </div>
 
                                                 
-        
+
+                                                        <div class="form-group form-group-default">
+                                                        <label>Status:</label>
+                                                             <select name="status" id="status" class="form-control">
+                                                             <option value="<?php echo $producto->status ?>"><?php echo $producto->status ?></option>
+                                                <option value="En Proceso">En Proceso</option>
+                                                <option value="Para Entregar">Para Entregar</option>
+                                                <option value="Entregado">Entregado</option>
+                                              
+                                              </select>
+                                            </div>
+
+                                                    
+                                                
                                                     
                                                     <br><br><input class="btn btn-info" type="submit" value="Guardar">
-                                                  
-                                                </form>
+                                                    <a class="btn btn-warning" href="./vistaequiposandroidp2.php">Cancelar</a>
 
-                                        </div>
-                                        <div class="modal-footer">
-                                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>
+                                                    <?php } ?>
+                                                </form>
+                                       
                                     
 
-                                        <?php
-                                            include_once "../base_de_datos.php";
-                                            $sentencia = $base_de_datos->query("SELECT * FROM equipos where status <> 'Entregado' and marca <> 'Apple' and sucursal = 'Local' order by numero_nota desc ;");
-                                            $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
-                                        ?>
-
-
-
-                                 <table class="table table-striped" border="1" >
-                                        <thead>
-                                            <tr>
-                                                <th scope="col"># Nota</th>
-                                                <th scope="col">Cliente</th>
-                                                <th scope="col">Modelo</th>
-                                                <th scope="col">Password</th>
-                                                <th scope="col">Trabajo</th>
-                                                <th scope="col">Falla</th>
-                                                <th scope="col">Regreso Garantia</th>
-                                                <th scope="col">Nota</th>
-                                                <th scope="col">Modificar</th>
-                                                <th scope="col">Eliminar</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            
-                                            <?php foreach($productos as $producto){ ?>
-
-                                            
-
-                                                <?php
-
-                                                    $var = $producto->status;
-                                                    $color = "";
-
-                                                    if ($var == 'En Espera') {
-                                                        $color = "#5770FF";
-                                                    }
-                                                    elseif( $var == 'En Proceso' ) {
-                                                        $color = "#C490FF";
-                                                    }
-                                                    elseif ($var == 'Para Entregar') {
-                                                        $color = "#8DFF69";
-                                                    }
-
-                                                ?>
-
-                                            <tr>
-                                                
-                                                <td style="background-color: <?php echo $color; ?>; color: black;"><?php echo $producto->numero_nota ?></td>
-                                                <td><?php echo $producto->nombre_cliente ?></td>
-                                                <td><?php echo $producto->modelo ?></td>
-                                                <td><?php echo $producto->contra ?></td>
-                                                <td><?php echo $producto->trabajo ?></td>
-                                                <td><?php echo $producto->falla_equipo ?></td>
-                                                <td><?php echo $producto->garantia ?></td>
-                                                <td><a class="btn btn-info" href="<?php echo "notasandroid.php?numero_nota=" . $producto->numero_nota?>"><i class="fa fa-paste"></i></a></td>
-                                                <td><a class="btn btn-warning" href="<?php echo "modificarnotaandroid.php?numero_nota=" . $producto->numero_nota?>"><i class="fa fa-edit"></i></a></td>
-                                                <td><a class="btn btn-danger" href="<?php echo "eliminarnotaandroid.php?numero_nota=" . $producto->numero_nota?>"><i class="fa fa-trash-o"></i></a></td>
-                                                
-                                            </tr>
-                                            <?php } ?>
-
-                                        </tbody>
-                                    </table>
+  
+                               
                             </div>
                             <div class="row">
                                

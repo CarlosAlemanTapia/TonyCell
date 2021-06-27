@@ -101,7 +101,7 @@
                     <li class="active">
                         <a href="../vistaprincipal.php"><i class="menu-icon fa fa-home"></i>INICIO </a>
                     </li>
-                    <li class="menu-title">PUNTOS</li><!-- /.menu-title -->
+                   <li class="menu-title">PUNTOS</li><!-- /.menu-title -->
                        <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-cogs"></i>LOCAL</a>
                         <ul class="sub-menu children dropdown-menu">  
@@ -132,7 +132,6 @@
                             
                         </ul>
                     </li>
-                 
 
                     <li class="menu-title">Pedidos</li><!-- /.menu-title -->
 
@@ -207,7 +206,7 @@
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-body">
-                                <h1 class="box-title">Equipos Android "LOCAL"</h1>
+                                <h1 class="box-title">Equipos Android "PUNTO 2"</h1>
                                 <br>
                                 <!-- MOdal -->
                                   <div class="modal fade" id="myModal" role="dialog">
@@ -219,7 +218,7 @@
                                         </div>
                                         <div class="modal-body">
                                           
-                                            <form method="post" action="crearandroid.php">
+                                            <form method="post" action="crearandroidp2.php">
                                                     
                                                     <p>Datos Cliente</p>
                                                     <hr>
@@ -390,7 +389,7 @@
                                                    
 
                                                     <input type="hidden" id="status" name="status" value="En Espera">
-                                                    <input type="hidden" id="sucursal" name="sucursal" value="Local">
+                                                    <input type="hidden" id="sucursal" name="sucursal" value="Puesto 2">
 
                                                    
 
@@ -412,7 +411,7 @@
 
                                         <?php
                                             include_once "../base_de_datos.php";
-                                            $sentencia = $base_de_datos->query("SELECT * FROM equipos where status <> 'Entregado' and marca <> 'Apple' and sucursal = 'Local' order by numero_nota desc ;");
+                                            $sentencia = $base_de_datos->query("SELECT * FROM equipos where status <> 'Entregado' and marca <> 'Apple' and sucursal = 'Puesto 2' order by numero_nota desc ;");
                                             $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
                                         ?>
 
@@ -466,8 +465,8 @@
                                                 <td><?php echo $producto->falla_equipo ?></td>
                                                 <td><?php echo $producto->garantia ?></td>
                                                 <td><a class="btn btn-info" href="<?php echo "notasandroid.php?numero_nota=" . $producto->numero_nota?>"><i class="fa fa-paste"></i></a></td>
-                                                <td><a class="btn btn-warning" href="<?php echo "modificarnotaandroid.php?numero_nota=" . $producto->numero_nota?>"><i class="fa fa-edit"></i></a></td>
-                                                <td><a class="btn btn-danger" href="<?php echo "eliminarnotaandroid.php?numero_nota=" . $producto->numero_nota?>"><i class="fa fa-trash-o"></i></a></td>
+                                                <td><a class="btn btn-warning" href="<?php echo "modificarnotaandroidp2.php?numero_nota=" . $producto->numero_nota?>"><i class="fa fa-edit"></i></a></td>
+                                                <td><a class="btn btn-danger" href="<?php echo "eliminarnotaandroidp2.php?numero_nota=" . $producto->numero_nota?>"><i class="fa fa-trash-o"></i></a></td>
                                                 
                                             </tr>
                                             <?php } ?>

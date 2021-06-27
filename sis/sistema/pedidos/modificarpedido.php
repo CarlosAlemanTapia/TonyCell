@@ -104,15 +104,37 @@
                     <li class="active">
                         <a href="../vistaprincipal.php"><i class="menu-icon fa fa-home"></i>INICIO </a>
                     </li>
-                    <li class="menu-title">Equipos</li><!-- /.menu-title -->
-                       <li>
-                        <a href="../equipos/vistaequiposandroid.php"> <i class="menu-icon fa fa-android"></i>Android </a>
+                   <li class="menu-title">PUNTOS</li><!-- /.menu-title -->
+                       <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-cogs"></i>LOCAL</a>
+                        <ul class="sub-menu children dropdown-menu">  
+                     
+                            <li><i class="fa fa-android"></i><a href="../equipos/vistaequiposandroid.php">Android</a></li>
+                            <li><i class="fa fa-apple"></i><a href="../equipos/vistaequiposapple.php">Apple</a></li>
+                            
+                        </ul>
                     </li>
-                     <li>
-                        <a href="../equipos/vistaequiposapple.php"> <i class="menu-icon fa fa-apple"></i>Apple </a>
-                    </li>
-                 
 
+
+                     <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-cogs"></i>PUNTO 1</a>
+                        <ul class="sub-menu children dropdown-menu">  
+                     
+                            <li><i class="fa fa-android"></i><a href="../equipos/vistaequiposandroidp1.php">Android</a></li>
+                            <li><i class="fa fa-apple"></i><a href="../equipos/vistaequiposapplep1.php">Apple</a></li>
+                            
+                        </ul>
+                    </li>
+
+                     <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-cogs"></i>PUNTO 2</a>
+                        <ul class="sub-menu children dropdown-menu">  
+                     
+                            <li><i class="fa fa-android"></i><a href="../equipos/vistaequiposandroidp2.php">Android</a></li>
+                            <li><i class="fa fa-apple"></i><a href="../equipos/vistaequiposapplep2.php">Apple</a></li>
+                            
+                        </ul>
+                    </li>
                     <li class="menu-title">Pedidos</li><!-- /.menu-title -->
 
                       <li>

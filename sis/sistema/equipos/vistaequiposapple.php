@@ -99,12 +99,36 @@
                     <li class="active">
                         <a href="../vistaprincipal.php"><i class="menu-icon fa fa-home"></i>INICIO </a>
                     </li>
-                    <li class="menu-title">Equipos</li><!-- /.menu-title -->
-                       <li>
-                        <a href="./vistaequiposandroid.php"> <i class="menu-icon fa fa-android"></i>Android </a>
+                     <li class="menu-title">PUNTOS</li><!-- /.menu-title -->
+                       <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-cogs"></i>LOCAL</a>
+                        <ul class="sub-menu children dropdown-menu">  
+                     
+                            <li><i class="fa fa-android"></i><a href="./vistaequiposandroid.php">Android</a></li>
+                            <li><i class="fa fa-apple"></i><a href="./vistaequiposapple.php">Apple</a></li>
+                            
+                        </ul>
                     </li>
-                     <li>
-                        <a href="./vistaequiposapple.php"> <i class="menu-icon fa fa-apple"></i>Apple </a>
+
+
+                     <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-cogs"></i>PUNTO 1</a>
+                        <ul class="sub-menu children dropdown-menu">  
+                     
+                            <li><i class="fa fa-android"></i><a href="./vistaequiposandroidp1.php">Android</a></li>
+                            <li><i class="fa fa-apple"></i><a href="./vistaequiposapplep1.php">Apple</a></li>
+                            
+                        </ul>
+                    </li>
+
+                     <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-cogs"></i>PUNTO 2</a>
+                        <ul class="sub-menu children dropdown-menu">  
+                     
+                            <li><i class="fa fa-android"></i><a href="./vistaequiposandroidp2.php">Android</a></li>
+                            <li><i class="fa fa-apple"></i><a href="./vistaequiposapplep2.php">Apple</a></li>
+                            
+                        </ul>
                     </li>
                  
 
@@ -181,7 +205,7 @@
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="box-title">Equipos APLLE</h4>
+                                <h4 class="box-title">Equipos APLLE "LOCAL"</h4>
                                 <br>
 
                                 <!-- MOdal -->
@@ -194,7 +218,7 @@
                                         </div>
                                         <div class="modal-body">
                                           
-                                            <form method="post" action="crearandroid.php">
+                                            <form method="post" action="crearapple.php">
                                                     
                                                     <p>Datos Cliente</p>
                                                     <hr>
@@ -335,7 +359,7 @@
 
                                                     <input type="hidden" id="status" name="status" value="En Espera">
 
-
+                                                    <input type="hidden" id="sucursal" name="sucursal" value="Local">
                                                    
 
                                                 
@@ -356,7 +380,7 @@
 
                                         <?php
                                             include_once "../base_de_datos.php";
-                                            $sentencia = $base_de_datos->query("SELECT * FROM equipos where status <> 'Entregado' and marca = 'Apple'  order by numero_nota desc ;");
+                                            $sentencia = $base_de_datos->query("SELECT * FROM equipos where status <> 'Entregado' and marca = 'Apple' and sucursal = 'Local'  order by numero_nota desc ;");
                                             $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
                                         ?>
 
@@ -371,6 +395,7 @@
                                                 <th scope="col">Password</th>
                                                 <th scope="col">Trabajo</th>
                                                 <th scope="col">Falla</th>
+                                                <th scope="col">Regreso Garantia</th>
                                                 <th scope="col">Nota</th>
                                                 <th scope="col">Modificar</th>
                                                 <th scope="col">Eliminar</th>
@@ -407,6 +432,7 @@
                                                 <td><?php echo $producto->contra ?></td>
                                                 <td><?php echo $producto->trabajo ?></td>
                                                 <td><?php echo $producto->falla_equipo ?></td>
+                                                <td><?php echo $producto->garantia ?></td>
                                                 <td><a class="btn btn-info" href="<?php echo "notasandroid.php?numero_nota=" . $producto->numero_nota?>"><i class="fa  fa-paste"></i></a></td>
                                                 <td><a class="btn btn-warning" href="<?php echo "modificarnotaapple.php?numero_nota=" . $producto->numero_nota?>"><i class="fa fa-edit"></i></a></td>
                                                 <td><a class="btn btn-danger" href="<?php echo "eliminarnotaapple.php?numero_nota=" . $producto->numero_nota?>"><i class="fa fa-trash-o"></i></a></td>

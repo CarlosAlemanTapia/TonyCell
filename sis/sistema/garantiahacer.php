@@ -1,14 +1,14 @@
 <?php
 
 #Salir si alguno de los datos no está presente
-if(!isset($_POST["numero_nota"]) 
+if(!isset($_GET["numero_nota"]) 
 ) exit();
 
 #Si todo va bien, se ejecuta esta parte del código...
 
 include_once "base_de_datos.php";
 
-$numero_nota = $_POST["numero_nota"];
+$numero_nota = $_GET["numero_nota"];
 $garantia = 'Si';
 $status = 'En Proceso';
 
