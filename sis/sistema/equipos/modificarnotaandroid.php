@@ -337,6 +337,7 @@
                                                              <option value="<?php echo $producto->status ?>"><?php echo $producto->status ?></option>
                                                 <option value="En Proceso">En Proceso</option>
                                                 <option value="Para Entregar">Para Entregar</option>
+                                                <option value="No quedo">No Quedo</option>
                                                 <option value="Entregado">Entregado</option>
                                               
                                               </select>

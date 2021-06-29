@@ -379,7 +379,7 @@
 
                                         <?php
                                             include_once "../base_de_datos.php";
-                                            $sentencia = $base_de_datos->query("SELECT * FROM equipos where status <> 'Entregado' and marca = 'Apple' and sucursal = 'Puesto 2'  order by numero_nota desc ;");
+                                            $sentencia = $base_de_datos->query("SELECT * FROM equipos where status <> 'Entregado' and status <> 'No quedo' and marca = 'Apple' and sucursal = 'Puesto 2'  order by numero_nota desc ;");
                                             $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
                                         ?>
 

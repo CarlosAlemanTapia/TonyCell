@@ -194,7 +194,7 @@
 
                       <?php
 					include_once "base_de_datos.php";
-					$sentencia = $base_de_datos->query("SELECT * FROM equipos where status = 'Entregado' order by numero_nota desc ;");
+					$sentencia = $base_de_datos->query("SELECT * FROM equipos where status = 'Entregado' or status = 'No quedo' order by numero_nota desc ;");
 					$productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
 				?>
                                   <table id="example" class="table table-striped table-bordered">
@@ -207,6 +207,7 @@
                                                 <th scope="col">Falla</th>
                                                 <th scope="col">Nota</th>
                                                 <th scope="col">Sucursal</th>
+                                                <th scope="col">Status</th>
                                                 <th scope="col">Garantia</th>
             </tr>
         </thead>
@@ -222,6 +223,7 @@
 												<td><?php echo $producto->falla_equipo ?></td>
 												<td><a class="btn btn-info" href="<?php echo "notas.php?numero_nota=" . $producto->numero_nota?>"><i class="fa  fa-paste"></i></a></td>
                                                 <td><?php echo $producto->sucursal ?></td>
+                                                <td><?php echo $producto->status ?></td>
                                                 <td><a class="btn btn-info" href="<?php echo "garantiahacer.php?numero_nota=" . $producto->numero_nota?>"><i class="fa fa-share-square-o"></i></a></td>
 												
 											</tr>
