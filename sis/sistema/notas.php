@@ -560,10 +560,10 @@ border: 2px solid black;
 			
 
      
-     <p><h2 align="center"><b>CONTACTOS LA JOYA</b></h2></p>
+     <p><h2 align="center"><b>CONTACTOS</b></h2></p>
       <h4 align="center"><b>
-      <p>Reparaciones en Gral.: 664 399 9594 </p>
-      <p>Liberacion & Flash: 664 550 9131 </p>
+    <p align="center">Local: 664 121-13-68</p>
+		<p align="center">Mas Informacion: 664 481-99-46</p></h4>
       </b></h4>
     
 

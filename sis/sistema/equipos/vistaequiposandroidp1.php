@@ -465,7 +465,7 @@
                                                 <td><?php echo $producto->trabajo ?></td>
                                                 <td><?php echo $producto->falla_equipo ?></td>
                                                 <td><?php echo $producto->garantia ?></td>
-                                                <td><a class="btn btn-info" href="<?php echo "notasandroid.php?numero_nota=" . $producto->numero_nota?>"><i class="fa fa-paste"></i></a></td>
+                                                <td><a class="btn btn-info" href="<?php echo "notasandroidp1.php?numero_nota=" . $producto->numero_nota?>"><i class="fa fa-paste"></i></a></td>
                                                 <td><a class="btn btn-warning" href="<?php echo "modificarnotaandroidp1.php?numero_nota=" . $producto->numero_nota?>"><i class="fa fa-edit"></i></a></td>
                                                 <td><a class="btn btn-danger" href="<?php echo "eliminarnotaandroidp1.php?numero_nota=" . $producto->numero_nota?>"><i class="fa fa-trash-o"></i></a></td>
                                                 

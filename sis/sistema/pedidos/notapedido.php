@@ -89,7 +89,7 @@ float:left;
 background:#CC6600;
 background-color: white;
 width: 180px;
-height: 65px;
+height: 80px;
 margin-right: 10px;
 margin-top: -100px;
 margin-left: 510px;
@@ -103,7 +103,7 @@ background-color: white;
 width: 180px;
 height: 90px;
 margin-right: 10px;
-margin-top:-35px;
+margin-top:-15px;
 margin-left: 510px;
 color: black;
 
@@ -545,7 +545,7 @@ border: 1px solid #aaaaaa;
 
   
 
-    <div id="d3" align="center"><h3><p><b>#P: <?php echo $producto->id_pedido ?></b></p></h3></div>
+    <div id="d3" align="center"><h3><p><b>#P: <br><?php echo $producto->id_pedido ?></b></p></h3></div>
 
     <div id="d4" align="center"><h4><p>Fecha De Pedido:<p><?php echo $producto->fecha ?></p></h4></div>
 
@@ -562,8 +562,8 @@ border: 1px solid #aaaaaa;
      
      <p><h3 align="center"><b>CONTACTOS</b></h3></p>
       <h4><b>
-      <p align="center">Reparaciones en Gral.: 664 399 9594</p>
-		<p align="center">Liberacion & Flash: 664 550 9131</p></h4>
+      <p align="center">Local: 664 121-13-68</p>
+		<p align="center">Mas Informacion: 664 481-99-46</p></h4>
     
 
 

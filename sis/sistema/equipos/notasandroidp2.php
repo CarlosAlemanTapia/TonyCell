@@ -528,7 +528,7 @@ border: 2px solid black;
 
 
 	<?php
-					include_once "../../../base_de_datos.php";
+					include_once "../base_de_datos.php";
 					$sentencia = $base_de_datos->query("SELECT * FROM equipos where numero_nota = $idnota ;");
 					$productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
 
@@ -549,29 +549,22 @@ border: 2px solid black;
 	<div id="d1"><img src="../../../assets/img/andromeda_logo_.png" width="100%" height="100"></div>
 
 
-	
-
-		<div id="d3" align="center"><h3 style="margin-top: 10px;"><p><b>N. NOTA:# <br> <?php echo $producto->numero_nota ?></b></p></h3></div>
+		<div id="d3" align="center"><h3 style="margin-top: 10px;"><p><b>N. NOTA:#  <br><?php echo $producto->numero_nota ?></b></p></h3></div>
 
 		<div id="d4" align="center"><h4><p><b>Fecha de Entrada: </b><p><?php echo $producto->fecha_llegada ?></p></h4></div>
-
-		<!-- <div id="d2">
-	</div> -->
-
 
 
 	<div id="d5">
 
 		<div id="d5-1">
 			
+
      
-     <p><h2 align="center"><b>CONTACTOS "ALTIPLANO"</b></h2></p>
+     <p><h2 align="center"><b>CONTACTOS <br>"Sobre Ruedas 2"</b></h2></p>
       <h4 align="center"><b>
-      <p>Local: 664 121-13-68 </p>
-      <p>Mas Informacion: <br> 664 481-99-46</p>
+      <p>Puesto 2: 664 481-99-46  </p>
       
       </b></h4>
-    
     
 
 
@@ -621,6 +614,7 @@ border: 2px solid black;
     <div id="d12-2"> <h3 style="margin-top: 10px;"> <p><b>Trabajo:<p></b><?php echo $producto->trabajo ?></p></h3></div> 
 
   </div>
+
 </div>
 
 

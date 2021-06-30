@@ -549,7 +549,7 @@ border: 2px solid black;
 	<div id="d1"><img src="../../../assets/img/andromeda_logo_.png" width="100%" height="100"></div>
 
 
-		<div id="d3" align="center"><h3 style="margin-top: 10px;"><p><b>N. NOTA:#  <?php echo $producto->numero_nota ?></b></p></h3></div>
+		<div id="d3" align="center"><h3 style="margin-top: 10px;"><p><b>N. NOTA:#  <br><?php echo $producto->numero_nota ?></b></p></h3></div>
 
 		<div id="d4" align="center"><h4><p><b>Fecha de Entrada: </b><p><?php echo $producto->fecha_llegada ?></p></h4></div>
 
@@ -560,10 +560,11 @@ border: 2px solid black;
 			
 
      
-     <p><h2 align="center"><b>CONTACTOS LA JOYA</b></h2></p>
+     <p><h2 align="center"><b>CONTACTOS "ALTIPLANO"</b></h2></p>
       <h4 align="center"><b>
-      <p>Reparaciones en Gral.: 664 399 9594 </p>
-      <p>Liberacion & Flash: 664 550 9131 </p>
+      <p>Local: 664 121-13-68 </p>
+      <p>Mas Informacion: <br> 664 481-99-46</p>
+      
       </b></h4>
     
 
